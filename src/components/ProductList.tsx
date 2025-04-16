@@ -22,6 +22,27 @@ const products = [
     description: "An exquisite silk hijab that adds a touch of elegance to your look.",
     price: 45.00,
   },
+  {
+    id: "4",
+    name: "Printed Cotton Hijab",
+    imageUrl: "https://picsum.photos/id/4/400/300", // Placeholder image
+    description: "A vibrant printed cotton hijab, perfect for adding a pop of color to your wardrobe.",
+    price: 28.00,
+  },
+  {
+    id: "5",
+    name: "Embroidered Modal Hijab",
+    imageUrl: "https://picsum.photos/id/5/400/300", // Placeholder image
+    description: "A beautifully embroidered modal hijab, adding a touch of sophistication to your ensemble.",
+    price: 38.00,
+  },
+  {
+    id: "6",
+    name: "Classic Black Abaya",
+    imageUrl: "https://picsum.photos/id/6/400/300", // Placeholder image
+    description: "A timeless classic black abaya, essential for every modest wardrobe.",
+    price: 55.00,
+  },
 ];
 
 const ProductList = () => {
