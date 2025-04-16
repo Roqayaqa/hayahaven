@@ -47,7 +47,7 @@ export default function RootLayout({
                      </Link>
                      <Link href="/collections" className="flex items-center space-x-2">
                        <span>Collections</span>
-                     </Link>
+                      </Link>
                      <Link href="/new-arrivals" className="flex items-center space-x-2">
                        <span>New Arrivals</span>
                       </Link>
@@ -103,22 +103,18 @@ export default function RootLayout({
               </nav>
             </div>
           </header>
-           <main className="container mx-auto py-10 px-6">
-             <section className="relative h-64 md:h-96 bg-primary rounded-lg overflow-hidden">
-               <img
-                 src="https://picsum.photos/id/4/1200/400"
-                 alt="Hero Banner"
-                  className="absolute w-full h-full object-cover"
-                 />
-               <div className="absolute inset-0 bg-black opacity-20"></div>
-               <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
-                 <h2 className="text-4xl font-bold mb-4">Discover Our New Collection</h2>
-                 <p className="text-lg mb-8">Find the perfect hijab to express your style and faith.</p>
-                 <Button size="lg">Shop Now</Button>
-               </div>
-             </section>
+            
+              
+                
+                 
+                   Find the perfect hijab to express your style and faith.
+                 
+                 Shop Now
+                
+              
+            
              {children}
-           </main>
+           
         </body>
       </html>
     );
