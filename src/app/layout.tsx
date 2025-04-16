@@ -31,44 +31,44 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <header className="bg-background sticky top-0 z-50">
             <div className="container mx-auto py-4 px-6 flex items-center justify-between">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="sm">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="left" className="w-full sm:w-64">
-                  <nav className="grid gap-4 text-sm sm:text-lg font-semibold">
-                    <Link href="/" className="flex items-center space-x-2">
-                      <span>Home</span>
-                    </Link>
-                    <Link href="/shop" className="flex items-center space-x-2">
-                      <span>Shop All</span>
-                    </Link>
-                    <Link href="/collections" className="flex items-center space-x-2">
-                      <span>Collections</span>
-                    </Link>
-                    <Link href="/new-arrivals" className="flex items-center space-x-2">
-                      <span>New Arrivals</span>
+               <Sheet>
+                 <SheetTrigger asChild className="md:hidden">
+                   <Button variant="ghost" size="sm">
+                     <Menu className="h-6 w-6" />
+                   </Button>
+                 </SheetTrigger>
+                 <SheetContent side="left" className="w-full sm:w-64">
+                   <nav className="grid gap-4 text-sm sm:text-lg font-semibold">
+                     <Link href="/" className="flex items-center space-x-2">
+                       <span>Home</span>
                      </Link>
-                    <Link href="/bestsellers" className="flex items-center space-x-2">
-                      <span>Bestsellers</span>
-                    </Link>
-                    <Link href="/on-sale" className="flex items-center space-x-2">
-                      <span>On Sale</span>
-                    </Link>
-                    <Link href="/track-order" className="flex items-center space-x-2">
-                      <span>Track My Order</span>
-                    </Link>
-                    <Link href="/contact" className="flex items-center space-x-2">
-                      <span>Contact Us</span>
-                    </Link>
-                    <Link href="/about" className="flex items-center space-x-2">
-                      <span>About Us</span>
-                    </Link>
-                  </nav>
-                </SheetContent>
-              </Sheet>
+                     <Link href="/shop" className="flex items-center space-x-2">
+                       <span>Shop All</span>
+                     </Link>
+                     <Link href="/collections" className="flex items-center space-x-2">
+                       <span>Collections</span>
+                     </Link>
+                     <Link href="/new-arrivals" className="flex items-center space-x-2">
+                       <span>New Arrivals</span>
+                      </Link>
+                     <Link href="/bestsellers" className="flex items-center space-x-2">
+                       <span>Bestsellers</span>
+                     </Link>
+                     <Link href="/on-sale" className="flex items-center space-x-2">
+                       <span>On Sale</span>
+                     </Link>
+                     <Link href="/track-order" className="flex items-center space-x-2">
+                       <span>Track My Order</span>
+                     </Link>
+                     <Link href="/contact" className="flex items-center space-x-2">
+                       <span>Contact Us</span>
+                     </Link>
+                     <Link href="/about" className="flex items-center space-x-2">
+                       <span>About Us</span>
+                     </Link>
+                   </nav>
+                 </SheetContent>
+               </Sheet>
               <a href="/" className="text-xl font-semibold">
                 Haya Haven
               </a>
@@ -104,22 +104,22 @@ export default function RootLayout({
             </div>
           </header>
            <main className="container mx-auto py-10 px-6">
-            <section className="relative h-64 md:h-96 bg-primary rounded-lg overflow-hidden">
-              <img
-                src="https://picsum.photos/id/4/1200/400"
-                alt="Hero Banner"
-                 className="absolute w-full h-full object-cover"
-                />
-              <div className="absolute inset-0 bg-black opacity-20"></div>
-              <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
-                <h2 className="text-4xl font-bold mb-4">Discover Our New Collection</h2>
-                <p className="text-lg mb-8">Find the perfect hijab to express your style and faith.</p>
-                <Button size="lg">Shop Now</Button>
-              </div>
-            </section>
-            {children}
-          </main>
-       </body>
-     </html>
-   );
- }
+             <section className="relative h-64 md:h-96 bg-primary rounded-lg overflow-hidden">
+               <img
+                 src="https://picsum.photos/id/4/1200/400"
+                 alt="Hero Banner"
+                  className="absolute w-full h-full object-cover"
+                 />
+               <div className="absolute inset-0 bg-black opacity-20"></div>
+               <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
+                 <h2 className="text-4xl font-bold mb-4">Discover Our New Collection</h2>
+                 <p className="text-lg mb-8">Find the perfect hijab to express your style and faith.</p>
+                 <Button size="lg">Shop Now</Button>
+               </div>
+             </section>
+             {children}
+           </main>
+        </body>
+      </html>
+    );
+  }
