@@ -72,32 +72,32 @@ export default function RootLayout({
               <a href="/" className="text-xl font-semibold">
                 Haya Haven
               </a>
-              <nav className="hidden md:flex space-x-6">
-                <Link href="/" className="hover:text-accent-foreground">
+              <nav className="hidden md:flex justify-center space-x-6 ml-auto">
+                 <Link href="/" className="hover:text-primary transition-colors duration-200">
                   Home
                 </Link>
-                 <Link href="/shop" className="hover:text-accent-foreground">
+                 <Link href="/shop" className="hover:text-primary transition-colors duration-200">
                   Shop All
                 </Link>
-                 <Link href="/collections" className="hover:text-accent-foreground">
+                 <Link href="/collections" className="hover:text-primary transition-colors duration-200">
                   Collections
                 </Link>
-                 <Link href="/new-arrivals" className="hover:text-accent-foreground">
+                 <Link href="/new-arrivals" className="hover:text-primary transition-colors duration-200">
                   New Arrivals
                 </Link>
-                  <Link href="/bestsellers" className="hover:text-accent-foreground">
+                  <Link href="/bestsellers" className="hover:text-primary transition-colors duration-200">
                    Bestsellers
                  </Link>
-                  <Link href="/on-sale" className="hover:text-accent-foreground">
+                  <Link href="/on-sale" className="hover:text-primary transition-colors duration-200">
                   On Sale
                  </Link>
-                 <Link href="/track-order" className="hover:text-accent-foreground">
+                 <Link href="/track-order" className="hover:text-primary transition-colors duration-200">
                    Track My Order
                  </Link>
-                <Link href="/contact" className="hover:text-accent-foreground">
+                <Link href="/contact" className="hover:text-primary transition-colors duration-200">
                   Contact Us
                 </Link>
-                 <Link href="/about" className="hover:text-accent-foreground">
+                 <Link href="/about" className="hover:text-primary transition-colors duration-200">
                    About Us
                  </Link>
               </nav>
@@ -119,3 +119,4 @@ export default function RootLayout({
       </html>
     );
   }
+
