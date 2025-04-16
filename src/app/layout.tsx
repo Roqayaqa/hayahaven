@@ -122,13 +122,6 @@ export default function RootLayout({
                  </div>
              </section>
               
-                
-                 
-                   Find the perfect hijab to express your style and faith.
-                 
-                 Shop Now
-                
-              
             
              {children}
             </main>
