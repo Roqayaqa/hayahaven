@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import {Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
-import {Menu, Home, ShoppingBag, List, Sparkle, Star, Percent, Truck, Phone, User} from 'lucide-react';
+import {Menu} from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from 'next/link';
@@ -34,45 +34,36 @@ export default function RootLayout({
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="sm">
-                    <Menu className="h-4 w-4 mr-2" />
+                    <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-full sm:w-64">
                   <nav className="grid gap-4 text-sm sm:text-lg font-semibold">
                     <Link href="/" className="flex items-center space-x-2">
-                      <Home className="h-4 w-4" />
                       <span>Home</span>
                     </Link>
                     <Link href="/shop" className="flex items-center space-x-2">
-                      <ShoppingBag className="h-4 w-4" />
                       <span>Shop All</span>
                     </Link>
                     <Link href="/collections" className="flex items-center space-x-2">
-                      <List className="h-4 w-4" />
                       <span>Collections</span>
                     </Link>
                     <Link href="/new-arrivals" className="flex items-center space-x-2">
-                      <Sparkle className="h-4 w-4" />
                       <span>New Arrivals</span>
-                    </Link>
+                     </Link>
                     <Link href="/bestsellers" className="flex items-center space-x-2">
-                      <Star className="h-4 w-4" />
                       <span>Bestsellers</span>
                     </Link>
                     <Link href="/on-sale" className="flex items-center space-x-2">
-                      <Percent className="h-4 w-4" />
                       <span>On Sale</span>
                     </Link>
                     <Link href="/track-order" className="flex items-center space-x-2">
-                      <Truck className="h-4 w-4" />
                       <span>Track My Order</span>
                     </Link>
                     <Link href="/contact" className="flex items-center space-x-2">
-                      <Phone className="h-4 w-4" />
                       <span>Contact Us</span>
                     </Link>
                     <Link href="/about" className="flex items-center space-x-2">
-                      <User className="h-4 w-4" />
                       <span>About Us</span>
                     </Link>
                   </nav>
@@ -82,42 +73,33 @@ export default function RootLayout({
                 Haya Haven
               </a>
               <nav className="hidden md:flex space-x-6">
-                <Link href="/" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <Home className="h-4 w-4" />
-                  <span>Home</span>
+                <Link href="/" className="hover:text-accent-foreground">
+                  Home
                 </Link>
-                 <Link href="/shop" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <ShoppingBag className="h-4 w-4" />
-                  <span>Shop All</span>
+                 <Link href="/shop" className="hover:text-accent-foreground">
+                  Shop All
                 </Link>
-                 <Link href="/collections" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <List className="h-4 w-4" />
-                  <span>Collections</span>
+                 <Link href="/collections" className="hover:text-accent-foreground">
+                  Collections
                 </Link>
-                 <Link href="/new-arrivals" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <Sparkle className="h-4 w-4" />
-                  <span>New Arrivals</span>
+                 <Link href="/new-arrivals" className="hover:text-accent-foreground">
+                  New Arrivals
                 </Link>
-                  <Link href="/bestsellers" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <Star className="h-4 w-4" />
-                  <span>Bestsellers</span>
+                  <Link href="/bestsellers" className="hover:text-accent-foreground">
+                   Bestsellers
+                 </Link>
+                  <Link href="/on-sale" className="hover:text-accent-foreground">
+                  On Sale
+                 </Link>
+                 <Link href="/track-order" className="hover:text-accent-foreground">
+                   Track My Order
+                 </Link>
+                <Link href="/contact" className="hover:text-accent-foreground">
+                  Contact Us
                 </Link>
-                  <Link href="/on-sale" className="hover:text-accent-foreground flex items-center space-x-2">
-                   <Percent className="h-4 w-4" />
-                  <span>On Sale</span>
-                </Link>
-                 <Link href="/track-order" className="hover:text-accent-foreground flex items-center space-x-2">
-                   <Truck className="h-4 w-4" />
-                  <span>Track My Order</span>
-                </Link>
-                <Link href="/contact" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <Phone className="h-4 w-4" />
-                  <span>Contact Us</span>
-                </Link>
-                 <Link href="/about" className="hover:text-accent-foreground flex items-center space-x-2">
-                  <User className="h-4 w-4" />
-                  <span>About Us</span>
-                </Link>
+                 <Link href="/about" className="hover:text-accent-foreground">
+                   About Us
+                 </Link>
               </nav>
             </div>
           </header>
@@ -126,7 +108,7 @@ export default function RootLayout({
               <img
                 src="https://picsum.photos/id/4/1200/400"
                 alt="Hero Banner"
-                className="absolute w-full h-full object-cover"
+                 className="absolute w-full h-full object-cover"
                 />
               <div className="absolute inset-0 bg-black opacity-20"></div>
               <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
