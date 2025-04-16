@@ -2,18 +2,6 @@ import type {Metadata} from 'next';
 import {Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
 import {Menu} from 'lucide-react';
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
@@ -39,12 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SidebarProvider>
+        
           <header className="bg-background sticky top-0 z-50">
             <div className="container mx-auto py-4 px-6 flex items-center justify-between">
-              <SidebarTrigger className="md:hidden">
+              
                 <Menu className="h-6 w-6" />
-              </SidebarTrigger>
+              
               <a href="/" className="text-xl font-semibold">
                 Haya Haven
               </a>
@@ -56,48 +44,45 @@ export default function RootLayout({
               </nav>
             </div>
           </header>
-          <Sidebar>
-            <SidebarContent>
-              <SidebarHeader>
-                <p className="text-muted-foreground">
+          
+            
+              
+                
                   Welcome to your Haya Haven dashboard.
-                </p>
-              </SidebarHeader>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
+                
+              
+              
+                
+                  
                     Home
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
+                  
+                
+                
+                  
                     Products
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
+                  
+                
+                
+                  
                     Orders
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
+                  
+                
+                
+                  
                     Account
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarContent>
-            <SidebarFooter className="pb-4 pt-2">
-              <a
-                href="https://www.example.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button variant="secondary" size="sm" className="w-full">
+                  
+                
+              
+            
+            
+              
+                
                   Documentation
-                </Button>
-              </a>
-            </SidebarFooter>
-          </Sidebar>
+                
+              
+            
+          
+
           <main className="container mx-auto py-10 px-6">
             <section className="relative h-64 md:h-96 bg-primary rounded-lg overflow-hidden">
               <img
@@ -114,9 +99,8 @@ export default function RootLayout({
             </section>
             {children}
           </main>
-        </SidebarProvider>
+        
       </body>
     </html>
   );
 }
-
