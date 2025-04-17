@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -6,8 +7,11 @@ import { Menu, Instagram, Facebook, Youtube } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Widget } from 'react-chat-widget';
+import 'react-chat-widget/lib/styles.css';
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,6 +33,27 @@ export default function RootLayout({
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleNewUserMessage = async (newMessage: string) => {
+    // Send the message to the backend API
+    const response = await fetch('/api/getChatResponse', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: newMessage }),
+    });
+
+    const data = await response.json();
+
+    // Add the AI response to the chat widget
+    //addNewMessage(data.response);
+  };
+
+  useEffect(() => {
+    console.log('useEffect called');
+  }, []);
+
 
   return (
     <html lang="en">
@@ -157,7 +182,13 @@ export default function RootLayout({
             © {new Date().getFullYear()} Haya Haven. All rights reserved.
           </div>
         </footer>
+         <Widget
+          handleNewUserMessage={handleNewUserMessage}
+          title="Chat with AI"
+          subtitle="Ask me anything about our products!"
+        />
       </body>
+     
     </html>
   );
 }
