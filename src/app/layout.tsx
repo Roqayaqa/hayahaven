@@ -2,15 +2,17 @@
  
  import { Geist, Geist_Mono } from 'next/font/google';
  import './globals.css';
- import { ThemeProvider } from '@/components/ThemeProvider';
- import { Button } from "@/components/ui/button";
- import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
--import Link from 'next/link';
-+import { Instagram, Facebook, TikTok } from 'lucide-react';
-+import Link from 'next/link';
+-@@ -9,10 +9,10 @@
  import { useState, useEffect } from 'react';
  import Image from 'next/image';
--import { Instagram, Facebook, TikTok } from 'lucide-react';
+ import { Instagram, Facebook, TikTok } from 'lucide-react';
+ import Link from 'next/link';
  import Footer from '@/components/Footer';
+  
  
  
+ 
++
+ export const metadata = {
+   title: 'Haya Haven - Elegant Islamic Hijabs',
+   description: 'Discover a curated collection of elegant Islamic hijabs. Shop the latest styles and find your perfect hijab at Haya Haven.',
