@@ -4,42 +4,42 @@ const products = [
   {
     id: "1",
     name: "Elegant Chiffon Hijab",
-    imageUrl: "https://picsum.photos/id/1/400/300", // Placeholder image
+    imageUrl: "/images/products/product1.png",
     description: "A lightweight and breathable chiffon hijab for everyday wear.",
     price: 25.00,
   },
   {
     id: "2",
     name: "Premium Jersey Hijab",
-    imageUrl: "https://picsum.photos/id/2/400/300", // Placeholder image
+    imageUrl: "/images/products/product2.png",
     description: "A soft and comfortable jersey hijab perfect for any occasion.",
     price: 30.00,
   },
   {
     id: "3",
     name: "Luxury Silk Hijab",
-    imageUrl: "https://picsum.photos/id/3/400/300", // Placeholder image
+    imageUrl: "/images/products/product3.png",
     description: "An exquisite silk hijab that adds a touch of elegance to your look.",
     price: 45.00,
   },
   {
     id: "4",
     name: "Printed Cotton Hijab",
-    imageUrl: "https://picsum.photos/id/4/400/300", // Placeholder image
+    imageUrl: "/images/products/product4.png",
     description: "A vibrant printed cotton hijab, perfect for adding a pop of color to your wardrobe.",
     price: 28.00,
   },
   {
     id: "5",
     name: "Embroidered Modal Hijab",
-    imageUrl: "https://picsum.photos/id/5/400/300", // Placeholder image
+    imageUrl: "/images/products/product5.png",
     description: "A beautifully embroidered modal hijab, adding a touch of sophistication to your ensemble.",
     price: 38.00,
   },
   {
     id: "6",
     name: "Classic Black Abaya",
-    imageUrl: "https://picsum.photos/id/6/400/300", // Placeholder image
+    imageUrl: "/images/products/product6.png",
     description: "A timeless classic black abaya, essential for every modest wardrobe.",
     price: 55.00,
   },
