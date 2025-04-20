@@ -137,7 +137,6 @@ export default function Home() {
 
       {/* Featured Hijabs Section */}
       <section className="mt-16 px-4 md:px-8">
-        <h2 className="text-2xl font-semibold mb-5">Featured Hijabs</h2>
         <ProductList />
       </section>
 
