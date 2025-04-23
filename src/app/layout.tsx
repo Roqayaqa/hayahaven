@@ -1,7 +1,7 @@
 'use client';
 
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import '../../global.css';
 import { Menu, Instagram, Facebook, Youtube } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -30,117 +30,138 @@ export default function RootLayout({
     setOpen(false);
   };
 
+  const currentYear = new Date().getFullYear(); // لا حاجة لـ useEffect هنا
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="bg-background sticky top-0 z-50">
-          <div className="container mx-auto py-4 px-6 flex items-center justify-between">
-            <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="sm">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-full sm:w-64">
-                <nav className="grid gap-4 text-sm sm:text-lg font-semibold">
-                  <Link href="/" onClick={handleClose}>Home</Link>
-                  <Link href="/shop" onClick={handleClose}>Shop All</Link>
-                  <Link href="/collections" onClick={handleClose}>Collections</Link>
-                  <Link href="/new-arrivals" onClick={handleClose}>New Arrivals</Link>
-                  <Link href="/bestsellers" onClick={handleClose}>Bestsellers</Link>
-                  <Link href="/on-sale" onClick={handleClose}>On Sale</Link>
-                  <Link href="/track-order" onClick={handleClose}>Track My Order</Link>
-                  <Link href="/contact" onClick={handleClose}>Contact Us</Link>
-                  <Link href="/about" onClick={handleClose}>About Us</Link>
-                </nav>
-              </SheetContent>
-            </Sheet>
+        {/* شريط متحرك */}
+        <section className="fixed top-0 left-0 w-full bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 z-50 h-9 flex items-center">
+        <div className="whitespace-nowrap inline-block animate-[marquee_40s_linear_infinite]">
+            <span className="mx-8">🎉 Free Shipping on Orders Over $50!</span>
+            <span className="mx-8">✨ Get 10% Off Your First Purchase!</span>
+            <span className="mx-8">🌸 New Arrivals are Here — Check Them Out!</span>
+            <span className="mx-8">💖 Modesty Meets Style in Every Hijab!</span>
+          </div>
+        </section>
 
+        {/* Header */}
+        <header className="bg-white/80 backdrop-blur-lg shadow-sm fixed top-9 z-40 w-full">
+          <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/images/logo.png"
                 alt="Haya Haven Logo"
                 width={150}
                 height={56}
-                priority
                 className="h-14 w-auto"
+                priority
               />
             </Link>
 
-            <nav className="hidden md:flex justify-center space-x-6 ml-auto">
-              <Link href="/">Home</Link>
-              <Link href="/shop">Shop All</Link>
-              <Link href="/collections">Collections</Link>
-              <Link href="/new-arrivals">New Arrivals</Link>
-              <Link href="/bestsellers">Bestsellers</Link>
-              <Link href="/on-sale">On Sale</Link>
-              <Link href="/track-order">Track My Order</Link>
-              <Link href="/contact">Contact Us</Link>
-              <Link href="/about">About Us</Link>
+            {/* Search Bar */}
+            <div className="hidden md:flex flex-1 max-w-md mx-6 relative">
+              <input
+                type="text"
+                placeholder="Search products..."
+                className="w-full border border-gray-300 rounded-full px-4 py-2 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"
+                />
+              </svg>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+              <Link href="/" className="hover:text-pink-600 transition">Home</Link>
+              <Link href="/shop" className="hover:text-pink-600 transition">Shop All</Link>
+              <Link href="/collections" className="hover:text-pink-600 transition">Collections</Link>
+              <Link href="/new-arrivals" className="hover:text-pink-600 transition">New Arrivals</Link>
+              <Link href="/bestsellers" className="hover:text-pink-600 transition">Bestsellers</Link>
+              <Link href="/on-sale" className="hover:text-pink-600 transition">On Sale</Link>
+              <Link href="/track-order" className="hover:text-pink-600 transition">Track Order</Link>
+              <Link href="/contact" className="hover:text-pink-600 transition">Contact</Link>
             </nav>
+
+            {/* Mobile Menu */}
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6 text-gray-700" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-full sm:w-64">
+                <nav className="grid gap-4 text-base font-medium text-gray-800 mt-4">
+                  <Link href="/" onClick={handleClose}>Home</Link>
+                  <Link href="/shop" onClick={handleClose}>Shop All</Link>
+                  <Link href="/collections" onClick={handleClose}>Collections</Link>
+                  <Link href="/new-arrivals" onClick={handleClose}>New Arrivals</Link>
+                  <Link href="/bestsellers" onClick={handleClose}>Bestsellers</Link>
+                  <Link href="/on-sale" onClick={handleClose}>On Sale</Link>
+                  <Link href="/track-order" onClick={handleClose}>Track Order</Link>
+                  <Link href="/contact" onClick={handleClose}>Contact</Link>
+                  <Link href="/about" onClick={handleClose}>About</Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </header>
 
         <main className="container mx-auto py-10 px-6">
-          {/* Hero Section */}
-          <section className="relative h-screen w-full overflow-hidden">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-75"
-            >
-              <source src="/videos/heroVideo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-                Discover Your Signature Style
-              </h1>
-              <p className="text-white text-lg md:text-xl max-w-2xl mb-8 drop-shadow">
-                Modest, elegant, and made just for you. Browse our premium hijab collections and express your beauty with confidence.
-              </p>
-              <Link
-                href="/products"
-                className="bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300"
-              >
-                Shop the Collection
-              </Link>
-            </div>
-          </section>
-
           {children}
         </main>
 
-        <footer className="bg-gray-100 border-t py-10 mt-20">
-          <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-start space-y-4">
+        {/* Footer */}
+        <footer className="bg-[#fdf2f8] border-t border-pink-200 text-gray-700 py-12 mt-20">
+          <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
               <Image
                 src="/images/logo.png"
                 alt="Haya Haven Logo"
-                width={150}
+                width={160}
                 height={56}
-                className="h-14 w-auto"
+                className="h-16 w-auto mb-4"
               />
-              <p className="text-gray-600 text-sm">
-                Discover a curated collection of elegant Islamic hijabs for every occasion.
+              <p className="text-sm leading-relaxed">
+                At <strong>Haya Haven</strong>, we celebrate modesty and style with a curated collection of elegant hijabs for every woman. Explore timeless beauty, comfort, and confidence—wrapped in fabric.
               </p>
             </div>
+
             <div>
-              <h4 className="text-gray-800 font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li><Link href="/shop">Shop All</Link></li>
-                <li><Link href="/collections">Collections</Link></li>
-                <li><Link href="/contact">Contact Us</Link></li>
-                <li><Link href="/about">About Us</Link></li>
-                <li><Link href="/track-order">Track Order</Link></li>
+              <h4 className="text-lg font-semibold text-pink-600 mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/shop">🛍️ Shop All</Link></li>
+                <li><Link href="/collections">🌸 Collections</Link></li>
+                <li><Link href="/new-arrivals">🆕 New Arrivals</Link></li>
+                <li><Link href="/bestsellers">🔥 Bestsellers</Link></li>
+                <li><Link href="/on-sale">💸 On Sale</Link></li>
               </ul>
             </div>
+
             <div>
-              <h4 className="text-gray-800 font-semibold mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
+              <h4 className="text-lg font-semibold text-pink-600 mb-4">Customer Care</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/track-order">📦 Track My Order</Link></li>
+                <li><Link href="/contact">📬 Contact Us</Link></li>
+                <li><Link href="/about">👋 About Us</Link></li>
+                <li><Link href="/faq">❓ FAQs</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-pink-600 mb-4">Stay Connected</h4>
+              <div className="flex space-x-4 mb-4">
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-pink-500 transition">
                   <Instagram className="h-6 w-6" />
                 </a>
@@ -151,10 +172,25 @@ export default function RootLayout({
                   <Youtube className="h-6 w-6" />
                 </a>
               </div>
+              <p className="text-sm mb-2">Subscribe to our newsletter</p>
+              <form className="flex space-x-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="px-3 py-2 text-sm rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-pink-500 text-white text-sm font-medium rounded-md hover:bg-pink-600 transition"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
-          <div className="text-center text-xs text-gray-500 mt-10">
-            © {new Date().getFullYear()} Haya Haven. All rights reserved.
+
+          <div className="mt-10 border-t border-pink-200 pt-6 text-center text-xs text-gray-500">
+            © {currentYear} Haya Haven — All rights reserved. Designed with 🌸 by Haya Team.
           </div>
         </footer>
       </body>

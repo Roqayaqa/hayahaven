@@ -44,6 +44,67 @@ export default function Home() {
   return (
     <div className="mx-auto py-10">
 
+
+
+<section className="relative h-screen w-full overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-75"
+            >
+              <source src="/videos/heroVideo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                Discover Your Signature Style
+              </h1>
+              <p className="text-white text-lg md:text-xl max-w-2xl mb-8 drop-shadow">
+                Modest, elegant, and made just for you. Browse our premium hijab collections and express your beauty with confidence.
+              </p>
+              <Link
+                href="/products"
+                className="bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300"
+              >
+                Shop the Collection
+              </Link>
+            </div>
+          </section>
+
+          <section className="relative py-36 bg-gradient-to-br from-rose-100 via-pink-50 to-white overflow-hidden mt-[-60px]">
+  {/* زخارف خلفية دائرية ناعمة */}
+  <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-200 opacity-20 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-[-100px] right-[-50px] w-96 h-96 bg-rose-300 opacity-20 rounded-full blur-2xl"></div>
+  <div className="absolute inset-0 bg-[url('/images/decor/soft-pattern.svg')] bg-center bg-no-repeat opacity-10 mix-blend-multiply"></div>
+
+  {/* المحتوى */}
+  <div data-aos="zoom-in" className="relative z-10 text-center max-w-4xl mx-auto px-6">
+    <h2 className="text-5xl md:text-6xl font-extrabold text-gray-800 mb-6 leading-tight drop-shadow-sm">
+      Elegance That Speaks for Itself
+    </h2>
+    <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
+      Find the perfect hijab that reflects your identity — subtle, luxurious, and full of soul.
+    </p>
+    <Link
+      href="/collections"
+      className="inline-block bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
+    >
+      Browse Collections
+    </Link>
+  </div>
+
+  {/* فاصل الموجة بين الأقسام */}
+  <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
+    <svg viewBox="0 0 1440 320" className="w-full h-[100px]">
+      <path fill="#fff" fillOpacity="1" d="M0,96L80,112C160,128,320,160,480,176C640,192,800,192,960,170.7C1120,149,1280,107,1360,85.3L1440,64V320H0Z"></path>
+    </svg>
+  </div>
+</section>
+
+
       {/* Hero Section (Slideshow) */}
       <section className="relative w-full h-[80vh]">
         <Swiper

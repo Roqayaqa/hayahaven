@@ -1,0 +1,39 @@
+/* 1. استيراد أساسيات Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global.css*/
+
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .marquee-container {
+    background: linear-gradient(90deg, #fce4ec, #f8bbd0); /* تدرج وردي ناعم */
+    color: #4a4a4a;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #f8bbd0;
+  }
+  
+  .marquee-content {
+    display: inline-block;
+    animation: slowMarquee 40s linear infinite; /* حركة أبطأ */
+    white-space: nowrap;
+    padding-left: 100%;
+  }
+  
+  .marquee-content span {
+    margin-right: 60px;
+    color: #d81b60; /* وردي قوي */
+  }
+  
