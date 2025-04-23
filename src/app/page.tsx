@@ -36,7 +36,7 @@ const slides = [
 ];
 
 export default function Home() {
-  
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -46,65 +46,63 @@ export default function Home() {
 
 
 
-<section className="relative h-screen w-full overflow-hidden">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-75"
-            >
-              <source src="/videos/heroVideo2.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+      <section className="relative h-screen w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-75"
+        >
+          <source src="/videos/heroVideo2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-                Discover Your Signature Style
-              </h1>
-              <p className="text-white text-lg md:text-xl max-w-2xl mb-8 drop-shadow">
-                Modest, elegant, and made just for you. Browse our premium hijab collections and express your beauty with confidence.
-              </p>
-              <Link
-                href="/products"
-                className="bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300"
-              >
-                Shop the Collection
-              </Link>
-            </div>
-          </section>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+            Discover Your Signature Style
+          </h1>
+          <p className="text-white text-lg md:text-xl max-w-2xl mb-8 drop-shadow">
+            Modest, elegant, and made just for you. Browse our premium hijab collections and express your beauty with confidence.
+          </p>
+          <Link
+            href="/products"
+            className="bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300"
+          >
+            Shop the Collection
+          </Link>
+        </div>
+      </section>
 
-          <section className="relative py-36 bg-gradient-to-br from-rose-100 via-pink-50 to-white overflow-hidden mt-[-60px]">
-  {/* زخارف خلفية دائرية ناعمة */}
-  <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-200 opacity-20 rounded-full blur-3xl"></div>
-  <div className="absolute bottom-[-100px] right-[-50px] w-96 h-96 bg-rose-300 opacity-20 rounded-full blur-2xl"></div>
-  <div className="absolute inset-0 bg-[url('/images/decor/soft-pattern.svg')] bg-center bg-no-repeat opacity-10 mix-blend-multiply"></div>
+      <section className="relative py-36 bg-gradient-to-br from-rose-100 via-pink-50 to-white overflow-hidden mt-[-60px]">
+        {/* زخارف خلفية دائرية ناعمة */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-200 opacity-20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[-100px] right-[-50px] w-96 h-96 bg-rose-300 opacity-20 rounded-full blur-2xl"></div>
+        <div className="absolute inset-0 bg-[url('/images/decor/soft-pattern.svg')] bg-center bg-no-repeat opacity-10 mix-blend-multiply"></div>
 
-  {/* المحتوى */}
-  <div data-aos="zoom-in" className="relative z-10 text-center max-w-4xl mx-auto px-6">
-    <h2 className="text-5xl md:text-6xl font-extrabold text-gray-800 mb-6 leading-tight drop-shadow-sm">
-      Elegance That Speaks for Itself
-    </h2>
-    <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
-      Find the perfect hijab that reflects your identity — subtle, luxurious, and full of soul.
-    </p>
-    <Link
-      href="/collections"
-      className="inline-block bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
-    >
-      Browse Collections
-    </Link>
-  </div>
+        {/* المحتوى */}
+        <div data-aos="zoom-in" className="relative z-10 text-center max-w-4xl mx-auto px-6">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-gray-800 mb-6 leading-tight drop-shadow-sm">
+            Elegance That Speaks for Itself
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
+            Find the perfect hijab that reflects your identity — subtle, luxurious, and full of soul.
+          </p>
+          <Link
+            href="/collections"
+            className="inline-block bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
+          >
+            Browse Collections
+          </Link>
+        </div>
 
-  {/* فاصل الموجة بين الأقسام */}
-  <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
-    <svg viewBox="0 0 1440 320" className="w-full h-[100px]">
-      <path fill="#fff" fillOpacity="1" d="M0,96L80,112C160,128,320,160,480,176C640,192,800,192,960,170.7C1120,149,1280,107,1360,85.3L1440,64V320H0Z"></path>
-    </svg>
-  </div>
-</section>
-
-
+        {/* فاصل الموجة بين الأقسام */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
+          <svg viewBox="0 0 1440 320" className="w-full h-[100px]">
+            <path fill="#fff" fillOpacity="1" d="M0,96L80,112C160,128,320,160,480,176C640,192,800,192,960,170.7C1120,149,1280,107,1360,85.3L1440,64V320H0Z"></path>
+          </svg>
+        </div>
+      </section>
       {/* Hero Section (Slideshow) */}
       <section className="relative w-full h-[80vh]">
         <Swiper
@@ -117,28 +115,54 @@ export default function Home() {
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-full">
-                <Image
-                  src={slide.imageUrl}
-                  alt={`Slide ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="brightness-75"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-                  <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">{slide.headline}</h2>
-                  <p className="text-lg md:text-2xl mb-6 drop-shadow">{slide.description}</p>
-                  <Link href="/shop">
-                    <Button className="bg-white text-black font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition duration-300">
-                      {slide.cta}
-                    </Button>
-                  </Link>
+              <div className="relative w-full h-full overflow-hidden">
+                <div className="absolute inset-0 transform scale-105 hover:scale-110 transition duration-[6000ms] ease-in-out">
+                  <Image
+                    src={slide.imageUrl}
+                    alt={`Slide ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="brightness-75"
+                  />
+                </div>
+
+                <div className="absolute inset-0 flex items-center justify-center px-4">
+                  <div
+                    className="bg-gray-800 bg-opacity-50 p-6 md:p-10 rounded-xl text-center max-w-2xl mx-auto text-white"
+                    data-aos="zoom-in"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                  >
+                    <h2
+                      className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-xl"
+                      data-aos="fade-up"
+                      data-aos-delay="300"
+                    >
+                      {slide.headline}
+                    </h2>
+                    <p
+                      className="text-base md:text-xl mb-6 drop-shadow"
+                      data-aos="fade-up"
+                      data-aos-delay="500"
+                    >
+                      {slide.description}
+                    </p>
+                    <div data-aos="fade-up" data-aos-delay="700">
+                      <Link href="/shop">
+                        <Button className="bg-pink-500 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition duration-300 glow-button">
+                          {slide.cta}
+                        </Button>
+
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </section>
+
 
       {/* Feature Section */}
       <section className="py-28 bg-gradient-to-br from-pink-50 to-white relative overflow-hidden">
@@ -248,12 +272,12 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-pink-600 mb-4">Ready to Elevate Your Style? 💫</h2>
           <p className="text-gray-700 text-lg mb-8">Explore our latest collection of elegant, comfortable hijabs and step into your confidence.</p>
-          <Link 
-  href="/products" 
-  className="inline-block bg-pink-500 hover:bg-pink-600 text-white text-lg font-medium py-3 px-8 rounded-full transition duration-300"
->
-  Shop Now
-</Link>
+          <Link
+            href="/products"
+            className="inline-block bg-pink-500 hover:bg-pink-600 text-white text-lg font-medium py-3 px-8 rounded-full transition duration-300"
+          >
+            Shop Now
+          </Link>
 
         </div>
       </section>
@@ -284,7 +308,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
     </div>
   );
 }

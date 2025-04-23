@@ -1,4 +1,5 @@
 'use client';
+import { motion } from 'framer-motion';
 
 import { Geist, Geist_Mono } from 'next/font/google';
 import '../../global.css';
@@ -37,11 +38,11 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* شريط متحرك */}
         <section className="fixed top-0 left-0 w-full bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 z-50 h-9 flex items-center">
-        <div className="whitespace-nowrap inline-block animate-[marquee_40s_linear_infinite]">
-            <span className="mx-8">🎉 Free Shipping on Orders Over $50!</span>
-            <span className="mx-8">✨ Get 10% Off Your First Purchase!</span>
-            <span className="mx-8">🌸 New Arrivals are Here — Check Them Out!</span>
-            <span className="mx-8">💖 Modesty Meets Style in Every Hijab!</span>
+          <div className="whitespace-nowrap inline-block animate-[marquee_40s_linear_infinite]">
+            <span className="mx-8 text-shadow">🎉 Free Shipping on Orders Over $50!</span>
+            <span className="mx-8 text-shadow">✨ Get 10% Off Your First Purchase!</span>
+            <span className="mx-8 text-shadow">🌸 New Arrivals are Here — Check Them Out!</span>
+            <span className="mx-8 text-shadow">💖 Modesty Meets Style in Every Hijab!</span>
           </div>
         </section>
 
@@ -98,26 +99,45 @@ export default function RootLayout({
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild className="md:hidden">
                 <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6 text-gray-700" />
+                  <Menu className="h-6 w-6 text-white" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-full sm:w-64">
-                <nav className="grid gap-4 text-base font-medium text-gray-800 mt-4">
-                  <Link href="/" onClick={handleClose}>Home</Link>
-                  <Link href="/shop" onClick={handleClose}>Shop All</Link>
-                  <Link href="/collections" onClick={handleClose}>Collections</Link>
-                  <Link href="/new-arrivals" onClick={handleClose}>New Arrivals</Link>
-                  <Link href="/bestsellers" onClick={handleClose}>Bestsellers</Link>
-                  <Link href="/on-sale" onClick={handleClose}>On Sale</Link>
-                  <Link href="/track-order" onClick={handleClose}>Track Order</Link>
-                  <Link href="/contact" onClick={handleClose}>Contact</Link>
-                  <Link href="/about" onClick={handleClose}>About</Link>
-                </nav>
+              <SheetContent side="left" className="w-full sm:w-64 bg-pink-500/90 backdrop-blur-md p-0 border-none shadow-xl rounded-r-2xl transition-transform duration-300 ease-in-out transform" style={{ transform: open ? 'translateX(0)' : 'translateX(-100%)' }}>
+                <motion.div
+                  initial={{ x: -80, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="flex flex-col h-full p-6"
+                >
+                  <nav className="flex flex-col gap-5 mt-10 text-lg font-semibold text-white">
+                    {[
+                      ['/', 'Home'],
+                      ['/shop', 'Shop All'],
+                      ['/collections', 'Collections'],
+                      ['/new-arrivals', 'New Arrivals'],
+                      ['/bestsellers', 'Bestsellers'],
+                      ['/on-sale', 'On Sale'],
+                      ['/track-order', 'Track Order'],
+                      ['/contact', 'Contact'],
+                      ['/about', 'About'],
+                    ].map(([href, label]) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={handleClose}
+                        className="transition-all hover:text-white/80 hover:pl-2 duration-300 ease-in-out"
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </nav>
+                </motion.div>
               </SheetContent>
             </Sheet>
           </div>
         </header>
 
+        {/* Main Content */}
         <main className="container mx-auto py-10 px-6">
           {children}
         </main>
@@ -188,9 +208,10 @@ export default function RootLayout({
               </form>
             </div>
           </div>
-
-          <div className="mt-10 border-t border-pink-200 pt-6 text-center text-xs text-gray-500">
-            © {currentYear} Haya Haven — All rights reserved. Designed with 🌸 by Haya Team.
+          <div className="text-center text-xs text-gray-500 mt-10">
+            <p className="hover:text-pink-500 transition-colors duration-300">
+              © {currentYear} Haya Haven — All rights reserved. Designed with 🌸 by Haya Team.
+            </p>
           </div>
         </footer>
       </body>

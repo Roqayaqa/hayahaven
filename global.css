@@ -5,6 +5,13 @@
 
 /* global.css*/
 
+
+/* Add a shadow or glow effect to the marquee text for more elegance */
+.animate-marquee span {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  
 @keyframes marquee {
     0% {
       transform: translateX(100%);
@@ -35,5 +42,20 @@
   .marquee-content span {
     margin-right: 60px;
     color: #d81b60; /* وردي قوي */
+  }
+  
+
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 0px rgba(236, 72, 153, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.9);
+    }
+  }
+  
+  .glow-button {
+    animation: glow 2.5s ease-in-out infinite;
   }
   
