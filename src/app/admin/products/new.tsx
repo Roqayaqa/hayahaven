@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { uploadImageToFirebase } from "@/lib/firebase-upload"; // ستقومين بإنشائه
+import { uploadImageToFirebase } from "../../..lib/firebase-upload"; // ستقومين بإنشائه
 
 // شكل البيانات المدخلة للنموذج
 const formSchema = z.object({

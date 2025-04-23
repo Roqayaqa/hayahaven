@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     // الاتصال بقاعدة البيانات
-    await connectToDB();
+    await connectDB();
 
     // استخراج البيانات من الطلب
     const { name } = await req.json();
