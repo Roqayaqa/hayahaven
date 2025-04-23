@@ -106,8 +106,7 @@ export default function Home() {
       {/* Hero Section (Slideshow) */}
       <section className="relative w-full h-[80vh]">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
+          modules={[ Pagination, Autoplay]}
           pagination={{ clickable: true }}
           autoplay={{ delay: 5000 }}
           loop
