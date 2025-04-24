@@ -22,21 +22,36 @@ body {
 .animate-marquee span {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   }
-
-  
+/* إضافة الأنيميشن إلى ملف global.css */
 @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(100%);
   }
- .marquee {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* تطبيق الأنيميشن على الشريط العلوي مع تعديل الاستجابة */
+.marquee {
   animation: marquee 40s linear infinite;
   white-space: nowrap;
   display: inline-block;
+  min-width: 100%; /* تأكد من أن الشريط يعرض النص كله بشكل مناسب */
 }
+
+@media (max-width: 768px) {
+  .marquee {
+    animation: marquee 30s linear infinite; /* تقليل الوقت على الشاشات الصغيرة */
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee {
+    animation: marquee 20s linear infinite; /* تقليل الوقت أكثر على الشاشات الصغيرة جدًا */
+  }
+}
+
  
   .marquee-container {
     background: linear-gradient(90deg, #fce4ec, #f8bbd0); /* تدرج وردي ناعم */
