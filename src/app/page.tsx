@@ -38,8 +38,11 @@ const slides = [
 export default function Home() {
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    if (typeof window !== 'undefined') {
+      AOS.init({ duration: 1000, once: true });
+    }
   }, []);
+  
 
   return (
     <div className="mx-auto py-10">
