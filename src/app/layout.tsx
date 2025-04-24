@@ -47,14 +47,15 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased ${open ? 'overflow-hidden' : ''}`}>
         <header className="fixed top-0 left-0 w-full z-50">
-          <div className="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 h-9 flex items-center">
-            <div className="whitespace-nowrap inline-block animate-marquee">
-              <span className="mx-8 text-shadow">🎉 Free Shipping on Orders Over $50!</span>
-              <span className="mx-8 text-shadow">✨ Get 10% Off Your First Purchase!</span>
-              <span className="mx-8 text-shadow">🌸 New Arrivals are Here — Check Them Out!</span>
-              <span className="mx-8 text-shadow">💖 Modesty Meets Style in Every Hijab!</span>
-            </div>
-          </div>
+        <div className="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 h-9 flex items-center">
+  <div className="marquee">
+    <span className="mx-8 text-shadow">🎉 Free Shipping on Orders Over $50!</span>
+    <span className="mx-8 text-shadow">✨ Get 10% Off Your First Purchase!</span>
+    <span className="mx-8 text-shadow">🌸 New Arrivals are Here — Check Them Out!</span>
+    <span className="mx-8 text-shadow">💖 Modesty Meets Style in Every Hijab!</span>
+  </div>
+</div>
+
 
           <div className="bg-white/80 backdrop-blur-lg shadow-sm mt-0">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">

@@ -13,6 +13,10 @@ body {
   height: 100%;
 }
 
+/* إضافة الأنيميشن إلى ملف global.css */
+
+
+/* تطبيق الأنيميشن على الشريط العلوي */
 
 /* Add a shadow or glow effect to the marquee text for more elegance */
 .animate-marquee span {
@@ -28,7 +32,12 @@ body {
       transform: translateX(-100%);
     }
   }
-  
+ .marquee {
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+  display: inline-block;
+}
+ 
   .marquee-container {
     background: linear-gradient(90deg, #fce4ec, #f8bbd0); /* تدرج وردي ناعم */
     color: #4a4a4a;
