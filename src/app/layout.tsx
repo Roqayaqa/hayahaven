@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { useState } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,12 +40,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
+        <Head>
         <title>Haya Haven - Modest & Elegant Hijabs</title>
         <meta name="description" content="Explore our curated collection of elegant and modern hijabs at Haya Haven. Free shipping over $50!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+        <link rel="icon" type="image/png" href="/images/logoTitle.png" />
+      </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased ${open ? 'overflow-hidden' : ''}`}>
         <header className="fixed top-0 left-0 w-full z-50">
         <div className="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 h-9 flex items-center">
