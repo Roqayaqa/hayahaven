@@ -12,23 +12,43 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // تشغيل مرة أولى
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+}
+
 
 const slides = [
   {
-    imageUrl: "/images/hijab1.webp",
+    desktopImageUrl: "/images/hijab1_desktop.png",
+    mobileImageUrl: "/images/hijab1_mobile.png",
     headline: "Discover Our New Hijab Collection",
     description: "Explore the latest styles and express your unique beauty.",
     cta: "Shop Now",
   },
   {
-    imageUrl: "/images/hijab2.webp",
+    desktopImageUrl: "/images/hijab2_desktop.png",
+    mobileImageUrl: "/images/hijab2_mobile.png",
     headline: "Elegant and Modest Fashion",
     description: "Find the perfect hijab to complement your style.",
     cta: "View Collection",
   },
   {
-    imageUrl: "/images/hijab3.webp",
+    desktopImageUrl: "/images/hijab3_desktop.png",
+    mobileImageUrl: "/images/hijab3_mobile.png",
     headline: "Timeless Hijabs for Every Occasion",
     description: "Elevate your look with our premium quality hijabs.",
     cta: "Explore Styles",
@@ -37,12 +57,15 @@ const slides = [
 
 export default function Home() {
 
+
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       AOS.init({ duration: 1000, once: true });
     }
   }, []);
-  
+
+  const isMobile = useIsMobile();
 
   return (
     <div className="mx-auto py-10">
@@ -108,62 +131,64 @@ export default function Home() {
       </section>
       {/* Hero Section (Slideshow) */}
       <section className="relative w-full h-[80vh]">
-        <Swiper
-          modules={[ Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-          loop
-          className="h-full"
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative w-full h-full overflow-hidden">
-                <div className="absolute inset-0 transform scale-105 hover:scale-110 transition duration-[6000ms] ease-in-out">
-                  <Image
-                    src={slide.imageUrl}
-                    alt={`Slide ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="brightness-75"
-                  />
-                </div>
-
-                <div className="absolute inset-0 flex items-center justify-center px-4">
-                  <div
-                    className="bg-gray-800 bg-opacity-50 p-6 md:p-10 rounded-xl text-center max-w-2xl mx-auto text-white"
-                    data-aos="zoom-in"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                  >
-                    <h2
-                      className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-xl"
-                      data-aos="fade-up"
-                      data-aos-delay="300"
-                    >
-                      {slide.headline}
-                    </h2>
-                    <p
-                      className="text-base md:text-xl mb-6 drop-shadow"
-                      data-aos="fade-up"
-                      data-aos-delay="500"
-                    >
-                      {slide.description}
-                    </p>
-                    <div data-aos="fade-up" data-aos-delay="700">
-                      <Link href="/shop">
-                        <Button className="bg-pink-500 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition duration-300 glow-button">
-                          {slide.cta}
-                        </Button>
-
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+  <Swiper
+    modules={[Pagination, Autoplay]}
+    pagination={{ clickable: true }}
+    autoplay={{ delay: 5000 }}
+    loop
+    className="h-full"
+  >
+    {slides.map((slide, index) => (
+      <SwiperSlide key={index}>
+        <div className="relative w-full h-full overflow-hidden">
+          {/* صورة الخلفية مع تأثير التوسيع البطيء */}
+          <div className="absolute inset-0 transform scale-105 hover:scale-110 transition-all duration-[6000ms] ease-in-out">
+            <Image
+              src={isMobile ? slide.mobileImageUrl : slide.desktopImageUrl}
+              alt={`Slide ${index + 1}`}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top"
+              className="brightness-75"
+            />
+          </div>
+       
+          {/* الصندوق النصي بأسفل الصورة */}
+          <div className="absolute inset-x-0 bottom-10 flex justify-center px-4">
+            <div
+              className="bg-white bg-opacity-20 backdrop-blur-md p-6 md:p-8 rounded-3xl text-center max-w-2xl w-full mx-auto text-white shadow-xl transform hover:scale-105 transition-transform duration-700 ease-out"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            >
+              <h2
+                className="text-2xl md:text-4xl font-extrabold mb-3 drop-shadow-lg"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                {slide.headline}
+              </h2>
+              <p
+                className="text-sm md:text-lg mb-5 drop-shadow-md"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                {slide.description}
+              </p>
+              <div data-aos="fade-up" data-aos-delay="700">
+                <Link href="/shop">
+                  <Button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition duration-300 tracking-wide uppercase">
+                    {slide.cta}
+                  </Button>
+                </Link>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</section>
 
 
       {/* Feature Section */}
