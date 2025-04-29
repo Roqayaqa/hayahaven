@@ -105,7 +105,7 @@ const About: React.FC = () => {
         <div className="mt-24 bg-pink-500 text-white py-12 text-center rounded-3xl">
           <h2 className="text-3xl font-semibold mb-6">Join the Haya Movement</h2>
           <p className="text-lg mb-8">Become part of a community of empowered women who are redefining modest fashion. Shop now and discover your new favorite hijab.</p>
-          <a href="/shop" className="bg-white text-pink-500 py-3 px-8 rounded-full text-lg font-semibold hover:bg-pink-100 transition">
+          <a href="/products" className="bg-white text-pink-500 py-3 px-8 rounded-full text-lg font-semibold hover:bg-pink-100 transition">
             Shop Now
           </a>
         </div>
