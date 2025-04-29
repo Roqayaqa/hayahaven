@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { useState } from 'react';
 import Image from 'next/image';
-import Head from 'next/head';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -20,14 +19,15 @@ const geistMono = Geist_Mono({
 
 const links = [
   ['/', 'Home'],
-  ['/shop', 'Shop All'],
+  ['/products', 'Shop All'],
   ['/collections', 'Collections'],
-  ['/new-arrivals', 'New Arrivals'],
-  ['/bestsellers', 'Bestsellers'],
-  ['/on-sale', 'On Sale'],
-  ['/track-order', 'Track Order'],
   ['/contact', 'Contact'],
   ['/about', 'About'],
+  ['/faqs', 'FAQs'],  // Added FAQs
+  ['/my-account', 'My Account'],  // Added My Account
+  ['/shopping-cart', 'Shopping Cart'],  // Added Shopping Cart
+  ['/track-order', 'Track Order'],  // Added Track Order
+  ['/shipping-payments', 'Shipping & Payments'],  // Added Shipping & Payments
 ];
 
 export default function RootLayout({
@@ -40,23 +40,23 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-        <Head>
+      <head> 
         <title>Haya Haven - Modest & Elegant Hijabs</title>
         <meta name="description" content="Explore our curated collection of elegant and modern hijabs at Haya Haven. Free shipping over $50!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/images/logoTitle.png" />
-      </Head>
+      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased ${open ? 'overflow-hidden' : ''}`}>
         <header className="fixed top-0 left-0 w-full z-50">
-        <div className="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 h-9 flex items-center">
-  <div className="marquee">
-    <span className="mx-8 text-shadow">🎉 Free Shipping on Orders Over $50!</span>
-    <span className="mx-8 text-shadow">✨ Get 10% Off Your First Purchase!</span>
-    <span className="mx-8 text-shadow">🌸 New Arrivals are Here — Check Them Out!</span>
-    <span className="mx-8 text-shadow">💖 Modesty Meets Style in Every Hijab!</span>
-  </div>
-</div>
-
+          <div className="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-pink-800 text-sm font-medium overflow-hidden border-b border-pink-300 h-9 flex items-center">
+            <div className="marquee">
+              <span className="mx-8 text-shadow">🎉 Free Shipping on Orders Over $50!</span>
+              <span className="mx-8 text-shadow">✨ Get 10% Off Your First Purchase!</span>
+              <span className="mx-8 text-shadow">🌸 New Arrivals are Here — Check Them Out!</span>
+              <span className="mx-8 text-shadow">💖 Modesty Meets Style in Every Hijab!</span>
+            </div>
+          </div>
 
           <div className="bg-white/80 backdrop-blur-lg shadow-sm mt-0">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
@@ -118,10 +118,8 @@ export default function RootLayout({
             <div>
               <h4 className="text-lg font-semibold text-pink-600 mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/shop">🛍️ Shop All</Link></li>
+                <li><Link href="/products">🛍️ Shop Now</Link></li>
                 <li><Link href="/collections">🌸 Collections</Link></li>
-                <li><Link href="/new-arrivals">🆕 New Arrivals</Link></li>
-                <li><Link href="/bestsellers">🔥 Bestsellers</Link></li>
                 <li><Link href="/on-sale">💸 On Sale</Link></li>
               </ul>
             </div>

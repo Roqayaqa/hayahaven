@@ -78,6 +78,7 @@ export default function Home() {
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-75"
         >
           <source src="/videos/heroVideo2.mp4" type="video/mp4" />
@@ -176,7 +177,7 @@ export default function Home() {
                 {slide.description}
               </p>
               <div data-aos="fade-up" data-aos-delay="700">
-                <Link href="/shop">
+                <Link href="/products">
                   <Button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition duration-300 tracking-wide uppercase">
                     {slide.cta}
                   </Button>
