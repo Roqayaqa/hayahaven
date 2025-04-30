@@ -1,6 +1,7 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
 import { Sparkles, Heart, ShieldCheck } from "lucide-react";
-import Layout from "../app/layout";
 
 const About: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -14,7 +15,6 @@ const About: React.FC = () => {
   }
 
   return (
-    <Layout>
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-16 px-6 lg:px-24 text-gray-800">
         
         {/* Hero Section */}
@@ -111,7 +111,6 @@ const About: React.FC = () => {
         </div>
 
       </div>
-    </Layout>
   );
 };
 

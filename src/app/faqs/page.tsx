@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import Layout from "../app/layout";
 
 export default function FAQs() {
   const [active, setActive] = useState<number | null>(null);
@@ -55,7 +54,6 @@ export default function FAQs() {
   ];
 
   return (
-    <Layout>
 
     <div className="container mx-auto px-6 py-12">
       <h1 className="text-4xl font-semibold text-center text-pink-600 mb-12">
@@ -95,7 +93,6 @@ export default function FAQs() {
         </p>
       </div>
     </div>
-        </Layout>
 
   );
 }

@@ -1,5 +1,4 @@
-'use client';
-
+"use client";
 import ProductList from '@/components/ProductList';
 import { Toaster } from '@/components/ui/toaster';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,7 +16,7 @@ import { useEffect, useState } from 'react';
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };

@@ -1,10 +1,8 @@
 'use client';
 import Link from 'next/link';
-import Layout from "../app/layout";
 
 export default function ReturnPolicy() {
   return (
-    <Layout>
 
     <div className="container mx-auto px-6 py-12">
       <h1 className="text-4xl font-semibold text-center text-pink-600 mb-12">
@@ -96,7 +94,6 @@ export default function ReturnPolicy() {
         </div>
       </div>
     </div>
-    </Layout>
 
   );
 }

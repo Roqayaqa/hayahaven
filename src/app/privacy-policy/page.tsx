@@ -1,9 +1,7 @@
 // app/privacy-policy/page.tsx
-import Layout from "../app/layout";
 
 export default function PrivacyPolicyPage() {
     return (
-        <Layout>
 
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-4xl font-bold text-pink-600 mb-8">Privacy Policy</h1>
@@ -61,7 +59,6 @@ export default function PrivacyPolicyPage() {
   
         <p className="text-gray-600 text-sm mt-12">Last updated: April 29, 2025</p>
       </div>
-          </Layout>
 
     );
   }

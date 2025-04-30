@@ -1,9 +1,7 @@
 "use client";
-import Layout from "../app/layout";
 
 export default function TermsAndConditions() {
   return (
-    <Layout>
 
     <div className="container mx-auto py-16 px-6">
       <h1 className="text-4xl font-semibold text-center text-pink-600 mb-8">
@@ -94,7 +92,6 @@ export default function TermsAndConditions() {
         </div>
       </div>
     </div>
-    </Layout>
 
   );
 }
