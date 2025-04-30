@@ -66,10 +66,10 @@ export default function ProductsPage() {
   });
 
   const router = useRouter();
+
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [showQuickView, setShowQuickView] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-  const [addedToBag, setAddedToCart] = useState(false);
 
   const handleQuickView = (product) => {
     setCurrentProduct(product);
@@ -82,13 +82,7 @@ export default function ProductsPage() {
     setCurrentProduct(null);
   };
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") closeQuickView();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  const [addedToBag, setAddedToCart] = useState(false);
 
   const handleAddToCart = () => {
     setAddedToCart(true);
@@ -100,19 +94,19 @@ export default function ProductsPage() {
     : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-100 py-14 px-4 sm:px-6 lg:px-20">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-4 tracking-tight">
+    <div className="min-h-screen bg-gradient-to-br from-white to-gray-100 py-14 px-6 lg:px-20">
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-4 tracking-tight">
         Explore Our Collection
       </h1>
       <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
         Discover premium hijabs crafted with care and style. Designed for elegance and everyday comfort.
       </p>
 
-      <div className="flex flex-wrap gap-3 justify-center mb-10">
+      <div className="flex flex-wrap gap-4 justify-center mb-10">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition ${
+            className={`px-4 py-2 rounded-full text-sm transition ${
               selectedCategory === cat ? "bg-pink-500 text-white" : "bg-gray-200 hover:bg-gray-300"
             }`}
             onClick={() => setSelectedCategory(cat)}
@@ -136,7 +130,7 @@ export default function ProductsPage() {
                 NEW
               </span>
             )}
-            <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 rounded-2xl overflow-hidden mb-4">
+            <div className="relative w-full h-72 rounded-2xl overflow-hidden mb-4">
               <Image
                 src={hoveredProduct === product.id ? product.images[1] : product.images[0]}
                 alt={product.name}
@@ -146,7 +140,7 @@ export default function ProductsPage() {
               />
             </div>
             <div className="px-2">
-              <h2 className="text-base sm:text-lg font-semibold text-gray-700 group-hover:text-black transition">
+              <h2 className="text-lg font-semibold text-gray-700 group-hover:text-black transition">
                 {product.name}
               </h2>
               <div className="flex items-center gap-1 text-yellow-400 mt-1">
@@ -176,7 +170,7 @@ export default function ProductsPage() {
           onClick={closeQuickView}
         >
           <div
-            className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 max-w-3xl w-[95%] sm:w-[90%] md:w-full relative flex flex-col md:flex-row shadow-2xl"
+            className="bg-white rounded-2xl p-4 md:p-8 max-w-3xl w-full relative flex flex-col md:flex-row shadow-2xl overflow-y-auto max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -187,21 +181,21 @@ export default function ProductsPage() {
             </button>
 
             <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-6 relative">
-              <button onClick={() => instanceRef.current?.prev()} className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-1 sm:p-2 rounded-full shadow z-10">
+              <button onClick={() => instanceRef.current?.prev()} className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow z-10">
                 ‹
               </button>
-              <button onClick={() => instanceRef.current?.next()} className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-1 sm:p-2 rounded-full shadow z-10">
+              <button onClick={() => instanceRef.current?.next()} className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow z-10">
                 ›
               </button>
-              <div ref={sliderRef} className="keen-slider w-full aspect-[4/3] sm:aspect-[5/4] md:h-96 rounded-xl overflow-hidden">
+              <div ref={sliderRef} className="keen-slider w-full h-52 md:h-64 rounded-xl overflow-hidden">
                 {currentProduct.images.map((img, idx) => (
-                  <div key={idx} className="keen-slider__slide flex justify-center items-center bg-white">
+                  <div key={idx} className="keen-slider__slide flex justify-center items-center bg-white group">
                     <Image
                       src={img}
                       alt={currentProduct.name}
-                      width={500}
-                      height={500}
-                      className="object-contain"
+                      width={300}
+                      height={300}
+                      className="object-contain max-h-52 md:max-h-64 transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                 ))}
@@ -209,12 +203,12 @@ export default function ProductsPage() {
             </div>
 
             <div className="w-full md:w-1/2">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">{currentProduct.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{currentProduct.name}</h2>
               <p className="text-gray-700 mb-4">{currentProduct.description}</p>
-              <p className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">{currentProduct.price}</p>
+              <p className="text-xl font-semibold text-gray-900 mb-4">{currentProduct.price}</p>
 
               <div className="mb-4">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-700">Colors:</h3>
+                <h3 className="text-lg font-semibold text-gray-700">Colors:</h3>
                 <div className="flex space-x-3 mt-2">
                   {currentProduct.colors.map((color, index) => {
                     const colorCode = color.toLowerCase();
